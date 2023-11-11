@@ -33,6 +33,9 @@ int main() {
 		}
 		printf("\n\x1B[31mtesting with %d access window size now...\x1B[0m\n", WINDOW_SIZE);
 		for(int i = 0; i < WINDOW_SIZE; i++) {
+			if(ram[i] == 0x08) {
+				printf("BACKSPACE detetced!");
+			}
 			putchar(ram[i]);
 			usleep(10);
 		}
