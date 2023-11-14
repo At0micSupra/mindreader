@@ -13,7 +13,6 @@ void stupid() {
 		ch++;
 		usleep(100);
 	}
-
 }
 
 
@@ -35,8 +34,12 @@ int main() {
 		for(int i = 0; i < WINDOW_SIZE; i++) {
 			if(ram[i] == 0x08) {
 				printf("BACKSPACE detetced!");
+			} else if(ram[i] == 0x00) {
+				// prevent nulls from being printed.
+				// aka do nothing here
+			} else {
+				putchar(ram[i]);
 			}
-			putchar(ram[i]);
 			usleep(10);
 		}
 		WINDOW_SIZE++;
